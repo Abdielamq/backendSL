@@ -33,7 +33,7 @@ var cliente_routes = require('./routes/cliente');
 var admin_routes = require('./routes/admin');
 var cupon_routes = require('./routes/cupon');
 
-mongoose.connect('mongodb+srv://i2115642:VR6r7SzXp4Ub3w6h@bodegaleo.uap8aol.mongodb.net/?retryWrites=true&w=majority',{useUnifiedTopology: true, useNewUrlParser: true}, (err,res)=>{
+mongoose.connect('mongodb://mezaquintoabdiel:abdielAMQ1010@ac-31q7ave-shard-00-00.fxc8qo8.mongodb.net:27017,ac-31q7ave-shard-00-01.fxc8qo8.mongodb.net:27017,ac-31q7ave-shard-00-02.fxc8qo8.mongodb.net:27017/tienda?replicaSet=atlas-2jd6d6-shard-0&ssl=true&authSource=admin',{useUnifiedTopology: true, useNewUrlParser: true}, (err,res)=>{
     if(err){  
         throw err;
         console.log(err);
