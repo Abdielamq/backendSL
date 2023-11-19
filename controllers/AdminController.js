@@ -402,7 +402,7 @@ const cambiar_vs_producto_admin = async function(req,res){
                 await Producto.findByIdAndUpdate({_id:id},{estado:'Publicado'});
                 res.status(200).send({data:true});
             }else if(estado == 'Publicado'){
-                await Producto.findByIdAndUpdate({_id:id},{estado:Edicion});
+                await Producto.findByIdAndUpdate({_id:id},{estado:'Edicion'});
                 res.status(200).send({data:true});
             }
         } catch (error) {
@@ -493,8 +493,8 @@ const enviar_email_pedido_compra = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'diegoalonssoac@gmail.com',
-                pass: 'dcmplvjviofjojgf'
+                user: 'quintohuarcayadinaelizabeth@gmail.com',
+                pass: 'xcchotuowvxujndi'
             }
         }));
     
@@ -511,9 +511,9 @@ const enviar_email_pedido_compra = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'diegoalonssoac@gmail.com',
+                from: 'quintohuarcayadinaelizabeth@gmail.com',
                 to: orden.cliente.email,
-                subject: 'Gracias por tu orden, Prágol.',
+                subject: 'Gracias por tu orden, StoreLeito.',
                 html: htmlToSend
             };
           
@@ -574,7 +574,7 @@ const marcar_finalizado_orden = async function(req,res){
         var venta = await Venta.findByIdAndUpdate({_id:id},{
             estado: 'Finalizado'
         });
-
+        enviar_orden_compra(venta._id);
         res.status(200).send({data:venta});
     }else{
         res.status(500).send({message: 'NoAccess'});
@@ -668,8 +668,8 @@ const mail_confirmar_envio = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'diegoalonssoac@gmail.com',
-                pass: 'dcmplvjviofjojgf'
+                user: 'quintohuarcayadinaelizabeth@gmail.com',
+                pass: 'xcchotuowvxujndi'
             }
         }));
     
@@ -686,7 +686,7 @@ const mail_confirmar_envio = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'diegoalonssoac@gmail.com',
+                from: 'quintohuarcayadinaelizabeth@gmail.com',
                 to: orden.cliente.email,
                 subject: 'Tu pedido ' + orden._id + ' fué enviado',
                 html: htmlToSend
@@ -764,8 +764,8 @@ const enviar_orden_compra = async function(venta){
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: 'diegoalonssoac@gmail.com',
-                pass: 'dcmplvjviofjojgf'
+                user: 'quintohuarcayadinaelizabeth@gmail.com',
+                pass: 'xcchotuowvxujndi'
             }
         }));
     
@@ -782,7 +782,7 @@ const enviar_orden_compra = async function(venta){
             var htmlToSend = template({op:true});
     
             var mailOptions = {
-                from: 'diegoalonssoac@gmail.com',
+                from: 'quintohuarcayadinaelizabeth@gmail.com',
                 to: orden.cliente.email,
                 subject: 'Confirmación de compra ' + orden._id,
                 html: htmlToSend
